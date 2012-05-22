@@ -53,6 +53,32 @@ this.object.setAttribute("description", this.description);
 this.object.serializeToTheDB();
 }
 }
+function catalog_newCars_Binding(x)
+{
+
+this.object = x;
+this.map = x.attributes();
+this.code;
+this.description;
+this.year_of_production;
+this.Write = function()
+{
+this.object.setAttribute("code", this.code);
+this.object.setAttribute("description", this.description);
+this.object.setAttribute("year_of_production", this.year_of_production);
+}
+this.GetRef = function()
+{
+return this;
+}
+this.Safe = function()
+{
+this.object.setAttribute("code", this.code);
+this.object.setAttribute("description", this.description);
+this.object.setAttribute("year_of_production", this.year_of_production);
+this.object.serializeToTheDB();
+}
+}
 function document_Currency_exchange_Binding(x)
 {
 
@@ -201,6 +227,7 @@ function catalogs_Binding()
 {
 this.Persons = new catalog_Persons_Binding (Persons);
 this.Colors = new catalog_Colors_Binding (Colors);
+this.newCars = new catalog_newCars_Binding (newCars);
 }
 var Catalogs = new catalogs_Binding();
 function documents_Binding()
