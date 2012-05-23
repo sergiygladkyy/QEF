@@ -74,6 +74,11 @@ MainWindow::MainWindow(QWidget *parent) :
     cat4->setAttribute("discount","");
     cat4->setAttribute("title","");
     m_catalogList.push_back(cat4);
+    FCatalog *cat5 = new FCatalog;
+    cat5->setAttribute("name", "new_Clients");
+    cat5->setAttribute("discount","");
+    cat5->setAttribute("new_title","");
+    m_catalogList.push_back(cat5);
 //------------------------------------------------------------------------
 
 
