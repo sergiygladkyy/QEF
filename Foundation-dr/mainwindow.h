@@ -68,6 +68,8 @@ private:
     void setupTableModel(QObject* applObject, TypeObject::type type);
     void setupComboBox();
 
+    void setupConnections();
+
 public slots:
     void slotOpenScript(QString filename);
     void slotOpenDocument(QObject* applObject);

@@ -14,20 +14,8 @@ MainWindow::MainWindow(QWidget *parent) :
     m_createDocumentMapper = new QSignalMapper(this);
     m_createCatalogMapper = new QSignalMapper(this);
 
+    setupConnections();
 
-    connect(m_scriptMapper, SIGNAL(mapped(QString)), this, SLOT(slotOpenScript(QString)));
-    connect(m_documentMapper, SIGNAL(mapped(QObject*)), this, SLOT(slotOpenDocument(QObject*)));
-    connect(m_catalogMapper, SIGNAL(mapped(QObject*)), this, SLOT(slotOpenCatalog(QObject*)));
-    connect(m_registerMapper, SIGNAL(mapped(QObject*)), this, SLOT(slotOpenRegister(QObject*)));
-
-    connect(m_createDocumentMapper, SIGNAL(mapped(int)), this, SLOT(slotCreateNewDocument(int)));
-    connect(ui->buttonCreateDocument, SIGNAL(clicked()), m_createDocumentMapper, SLOT(map()));
-    connect(ui->comboBoxDocuments, SIGNAL(activated(int)), this, SLOT(slotComboDocumentActivated(int)));
-    m_createDocumentMapper->setMapping(ui->buttonCreateDocument, 0);
-    connect(m_createCatalogMapper, SIGNAL(mapped(int)), this, SLOT(slotCreateNewCatalog(int)));
-    connect(ui->buttonCreateCatalog, SIGNAL(clicked()), m_createCatalogMapper, SLOT(map()));
-    connect(ui->comboBoxCatalogs, SIGNAL(activated(int)), this, SLOT(slotComboCatalogActivated(int)));
-    m_createCatalogMapper->setMapping(ui->buttonCreateCatalog, 0);
 
 
 //------------Place for creating documents/catalogs/registers-------------
@@ -81,6 +69,11 @@ MainWindow::MainWindow(QWidget *parent) :
     cat3->setAttribute("name", "newCars");
     cat3->setAttribute("year_of_production","");
     m_catalogList.push_back(cat3);
+    FCatalog *cat4 = new FCatalog;
+    cat4->setAttribute("name", "Clients");
+    cat4->setAttribute("discount","");
+    cat4->setAttribute("title","");
+    m_catalogList.push_back(cat4);
 //------------------------------------------------------------------------
 
 
@@ -348,4 +341,20 @@ void MainWindow::slotCreateNewCatalog(int index)
 void MainWindow::slotComboCatalogActivated(int index)
 {
     m_createCatalogMapper->setMapping(ui->buttonCreateCatalog, index);
+}
+void MainWindow::setupConnections()
+{
+    connect(m_scriptMapper, SIGNAL(mapped(QString)), this, SLOT(slotOpenScript(QString)));
+    connect(m_documentMapper, SIGNAL(mapped(QObject*)), this, SLOT(slotOpenDocument(QObject*)));
+    connect(m_catalogMapper, SIGNAL(mapped(QObject*)), this, SLOT(slotOpenCatalog(QObject*)));
+    connect(m_registerMapper, SIGNAL(mapped(QObject*)), this, SLOT(slotOpenRegister(QObject*)));
+
+    connect(m_createDocumentMapper, SIGNAL(mapped(int)), this, SLOT(slotCreateNewDocument(int)));
+    connect(ui->buttonCreateDocument, SIGNAL(clicked()), m_createDocumentMapper, SLOT(map()));
+    connect(ui->comboBoxDocuments, SIGNAL(activated(int)), this, SLOT(slotComboDocumentActivated(int)));
+    m_createDocumentMapper->setMapping(ui->buttonCreateDocument, 0);
+    connect(m_createCatalogMapper, SIGNAL(mapped(int)), this, SLOT(slotCreateNewCatalog(int)));
+    connect(ui->buttonCreateCatalog, SIGNAL(clicked()), m_createCatalogMapper, SLOT(map()));
+    connect(ui->comboBoxCatalogs, SIGNAL(activated(int)), this, SLOT(slotComboCatalogActivated(int)));
+    m_createCatalogMapper->setMapping(ui->buttonCreateCatalog, 0);
 }
