@@ -364,8 +364,7 @@ void MainWindow::setupConnections()
     m_createCatalogMapper->setMapping(ui->buttonCreateCatalog, 0);
     return;
 }
-void MainWindow::newFunction()
+void MainWindow::testFunction()
 {
-    qDebug()<<"New function!";
     return;
 }

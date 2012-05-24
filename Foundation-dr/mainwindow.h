@@ -81,6 +81,9 @@ public slots:
     void slotComboDocumentActivated(int index);
     void slotCreateNewCatalog(int index);
     void slotComboCatalogActivated(int index);
+
+    //testing git
+    void testFunction();
 };
 
 #endif // MAINWINDOW_H
