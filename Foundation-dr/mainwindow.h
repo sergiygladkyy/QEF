@@ -82,8 +82,8 @@ public slots:
     void slotCreateNewCatalog(int index);
     void slotComboCatalogActivated(int index);
 
-    //testing git
-    void testFunction();
+    //test git with qtcreator
+    void function1();
 };
 
 #endif // MAINWINDOW_H

@@ -364,7 +364,9 @@ void MainWindow::setupConnections()
     m_createCatalogMapper->setMapping(ui->buttonCreateCatalog, 0);
     return;
 }
-void MainWindow::testFunction()
+void MainWindow::function1()
 {
+    int a = 9;
+    int b =10;
     return;
 }
