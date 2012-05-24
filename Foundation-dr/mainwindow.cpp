@@ -362,4 +362,10 @@ void MainWindow::setupConnections()
     connect(ui->buttonCreateCatalog, SIGNAL(clicked()), m_createCatalogMapper, SLOT(map()));
     connect(ui->comboBoxCatalogs, SIGNAL(activated(int)), this, SLOT(slotComboCatalogActivated(int)));
     m_createCatalogMapper->setMapping(ui->buttonCreateCatalog, 0);
+    return;
+}
+void MainWindow::newFunction()
+{
+    qDebug()<<"New function!";
+    return;
 }
