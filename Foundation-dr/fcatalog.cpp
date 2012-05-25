@@ -178,7 +178,11 @@ void FCatalog::serializeToTheDB()
     if(!query.isActive()){
         qDebug()<<query.lastError();
     }
+<<<<<<< HEAD
     qDebug()<<"Serialization complete!";
+=======
+    qDebug()<<"Record in ConfigurationDB complete!!!";
+>>>>>>> d444a25b28411c8360d892c1ea746de4cba509bf
 }
 FCatalog* FCatalog::createCopy()
 {

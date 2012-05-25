@@ -68,6 +68,8 @@ private:
     void setupTableModel(QObject* applObject, TypeObject::type type);
     void setupComboBox();
 
+    void setupConnections();
+
 public slots:
     void slotOpenScript(QString filename);
     void slotOpenDocument(QObject* applObject);
@@ -79,6 +81,9 @@ public slots:
     void slotComboDocumentActivated(int index);
     void slotCreateNewCatalog(int index);
     void slotComboCatalogActivated(int index);
+
+    //test git with qtcreator
+    void function1();
 };
 
 #endif // MAINWINDOW_H
